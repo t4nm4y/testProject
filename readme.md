@@ -32,6 +32,7 @@ This project requires [GoLang](https://go.dev/dl/), [GoFr](https://gofr.dev/) an
     ```go
     go run main.go
     ```
+    It will run on [localhost:8000](http://localhost:8000/)
     
 5. At last, Cleanup:
     
@@ -43,35 +44,31 @@ This project requires [GoLang](https://go.dev/dl/), [GoFr](https://gofr.dev/) an
     ```
 ## API References
 A Postman collection is provided in this repo for demonstrating all of these APIs.
-#### To Fetch all the movies
+
+Base URL: [localhost:8000](http://localhost:8000/)
+
+You can use Postman to test all these API endpoints.
+
+#### 1. To Fetch all the movies
 
 ```
   GET /all
 ```
-#### To Fetch all the movies of a particular genre
+#### 2. To Fetch all the movies of a particular genre
 
 ```
   GET /movies/genre/
 ```
-#### 1. To Fetch all the movies of a particular language
+In Postman in `Params` set `Key` as "genre" and `Value` as "genre_name" (the genre that you want to search)
+
+#### 3. To Fetch all the movies of a particular language
 
 ```
   GET /movies/language/
 ```
+In Postman in `Params` set `Key` as "language" and `Value` as "language_name" (the language you want to search).
 
-#### 2. Edit/update the details of a movie
-
-```
-  PUT /update
-```
-
-| JSON Key | Type     | Required |
-| :-------- | :------- | :------- |
-| `name` | `string` | **Required** |
-| `language` | `string` | - |
-| `genre` | `string` | - |
-
-#### 3. Add a Movie
+#### 4. Add a Movie
 
 ```
   POST /add
@@ -83,12 +80,41 @@ A Postman collection is provided in this repo for demonstrating all of these API
 | `language` | `string` | - |
 | `genre` | `string` | - |
 
-#### 4. Delete a Movie
+eg: in Postman in the `Body` select `raw` and then put this:
+```json
+{
+    "name": "3 Idiots",
+ "language": "Hindi",
+    "genre": "Comedy"
+}
+```
+
+#### 5. Edit/update the details of a movie
+
+```
+  PUT /update
+```
+
+| JSON Key | Type     | Required |
+| :-------- | :------- | :------- |
+| `name` | `string` | **Required** |
+| `language` | `string` | - |
+| `genre` | `string` | - |
+
+eg: in Postman in the `Body` select `raw` and then put this if you want to change the genre:
+```json
+{
+    "name": "3 Idiots",
+    "genre": "Drama"
+}
+```
+
+#### 6. Delete a Movie
 
 ```
   DELETE /delete
 ```
-Send the name of the movie that you want to delete in the parameters.
+In Postman in `Params` set `Key` as "name" and `Value` as "movie_name" (the name of the movie you want to delete).
 
 ### Made with ❤️ by Tanmay Kumar.
 
