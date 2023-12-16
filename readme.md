@@ -86,7 +86,7 @@ A Postman collection is also provided demonstrating all of these APIs.
 ```
   DELETE /delete
 ```
-Send the name of the movie in the parameters.
+Send the name of the movie that you want to delete in the parameters.
 
 ### Made with ❤️ by Tanmay Kumar.
 
