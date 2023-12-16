@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "842dab91-a09f-47a3-beb1-b3401e0a477d",
+		"name": "goFr CRUD collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26954864"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/delete?name=Movie2",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Name",
+						"value": "Movie2",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/delete?name=Movie2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Movie2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/movies/genre/?genre=Drama",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/movies/genre/?genre=Drama",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"movies",
+						"genre",
+						""
+					],
+					"query": [
+						{
+							"key": "genre",
+							"value": "Drama"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/movies/language/?language=english",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/movies/language/?language=english",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"movies",
+						"language",
+						""
+					],
+					"query": [
+						{
+							"key": "language",
+							"value": "english"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"RRR\",\r\n\t\"language\": \"hindi\",\r\n    \"genre\":\"Action\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"3 Idiots\",\r\n    \"language\": \"hindi\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
