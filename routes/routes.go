@@ -5,14 +5,9 @@ import (
 	"strings"
 	"errors"
 	"gofr.dev/pkg/gofr"
+	"github.com/t4nm4y/testProject/model"
 )
 
-type Movie struct {
-	ID       int    `json:"id"`
-	Name     string `json:"name"`
-	Language string `json:"language"`
-	Genre    string `json:"genre"`
-}
 
 func AllMovies(ctx *gofr.Context) (interface{}, error) {
 
@@ -21,11 +16,11 @@ func AllMovies(ctx *gofr.Context) (interface{}, error) {
 	if err != nil {
 		return nil, err
 	}
-    var movies []Movie
+    var movies []model.Movie
 
 	// Iterate over the rows and scan data into Movie objects
 	for rows.Next() {
-		var movie Movie
+		var movie model.Movie
 		err := rows.Scan(&movie.ID, &movie.Name, &movie.Language, &movie.Genre)
 		if err != nil {
 			return nil, err
@@ -49,7 +44,7 @@ func DeleteMovie(ctx *gofr.Context) (interface{}, error) {
 }
 
 func AddMovie(ctx *gofr.Context) (interface{}, error) {
-    var movie Movie
+    var movie model.Movie
     if err := ctx.Bind(&movie); err != nil {
         return nil, err
     }
@@ -68,7 +63,7 @@ func AddMovie(ctx *gofr.Context) (interface{}, error) {
 
 //you can only update the language or genre of the movie
 func UpdateMovie(ctx *gofr.Context) (interface{}, error) {
-    var movie Movie
+    var movie model.Movie
     if err := ctx.Bind(&movie); err != nil {
         return nil, err
     }
@@ -102,8 +97,8 @@ func UpdateMovie(ctx *gofr.Context) (interface{}, error) {
 }
 
 // Helper function to retrieve a movie by name from the database
-func getMovieByName(ctx *gofr.Context, name string) (*Movie, error) {
-    var movie Movie
+func getMovieByName(ctx *gofr.Context, name string) (*model.Movie, error) {
+    var movie model.Movie
     err := ctx.DB().QueryRowContext(ctx, "SELECT * FROM movies WHERE name=?", name).Scan(&movie.ID, &movie.Name, &movie.Language, &movie.Genre)
     if err != nil {
         return nil, err
@@ -121,9 +116,9 @@ func MoviesByGenre(ctx *gofr.Context) (interface{}, error) {
         return nil, err
     }
 
-    var movies []Movie
+    var movies []model.Movie
     for rows.Next() {
-        var movie Movie
+        var movie model.Movie
         if err := rows.Scan(&movie.ID, &movie.Name, &movie.Language, &movie.Genre); err != nil {
             return nil, err
         }
@@ -144,9 +139,9 @@ func MoviesByLanguage(ctx *gofr.Context) (interface{}, error) {
         return nil, err
     }
 
-    var movies []Movie
+    var movies []model.Movie
     for rows.Next() {
-        var movie Movie
+        var movie model.Movie
         if err := rows.Scan(&movie.ID, &movie.Name, &movie.Language, &movie.Genre); err != nil {
             return nil, err
         }
