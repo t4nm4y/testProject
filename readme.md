@@ -13,12 +13,12 @@ This project requires [GoLang](https://go.dev/dl/), [GoFr](https://gofr.dev/) an
 
     ```bash
     git clone https://github.com/t4nm4y/testProject.git
-    cd your-repository
+    cd testPoject
     ```
 
 2. Setting up the database:
 
--  Go to the "db" directory and run these commands:
+-  cd in the "db" directory and run these commands:
 
     ```go
     docker build -t custom-mysql-image .
@@ -27,20 +27,22 @@ This project requires [GoLang](https://go.dev/dl/), [GoFr](https://gofr.dev/) an
     This will setup a SQL database with temporary data for testing.
 
 3. Run the main.go file:
+
+   cd in the testProject root directory and run this command:
     ```go
     go run main.go
     ```
     
-4. At last, Cleanup:
+5. At last, Cleanup:
     
-    To stop and remove the Docker container, run:
-
+    To stop and remove the Docker container, cd in the "db" directory and run:
+   
     ```go
     docker stop mysql-container
     docker rm mysql-container
     ```
 ## API References
-A Postman collection is also provided demonstrating all of these APIs.
+A Postman collection is provided in this repo for demonstrating all of these APIs.
 #### To Fetch all the movies
 
 ```
