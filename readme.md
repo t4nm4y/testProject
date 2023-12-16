@@ -83,7 +83,7 @@ A Postman collection is also provided demonstrating all of these APIs.
 
 #### 4. Delete a Movie
 
-```http
+```
   DELETE /delete
 ```
 Send the name of the movie in the parameters.
