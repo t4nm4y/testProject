@@ -11,7 +11,7 @@ type Movie struct {
 	Genre    string `json:"genre"`
 }
 
-func all(ctx *gofr.Context) (interface{}, error) {
+func All(ctx *gofr.Context) (interface{}, error) {
 
 	rows, err := ctx.DB().QueryContext(ctx, "SELECT * FROM movies;")
 
