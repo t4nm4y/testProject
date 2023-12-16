@@ -1,0 +1,9 @@
+# Using official MySQL image as the base image
+FROM mysql:latest
+
+# Set environment variables
+ENV MYSQL_ROOT_PASSWORD=password123
+ENV MYSQL_DATABASE=moviedb
+
+# SQL script to initialize the database
+COPY init.sql /docker-entrypoint-initdb.d/
